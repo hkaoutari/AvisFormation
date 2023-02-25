@@ -1,0 +1,27 @@
+﻿@model AvisFormation.WebUi.Models.Detailsviewmodel
+    @{
+        ViewBag.Title = "DetailsFormation";
+}
+
+<h2>DetailsFormation @Model.Nom</h2>
+<div>
+    <p>Nom : @Model.Nom </p>
+    <p>Description : @Model.Description </p>
+    <p>Lien de la Formation : @Model.Url </p>
+    <p>Note : @Model.NombreAvis</p>
+    <p>Nombre d'avis' : @Model.NombreAvis</p>
+    @Html.ActionLink("Ajouter un avis","AjouterUnAvis", "Avis",new {nomSeo=Model.NomSeo},null)  @*Le nom affiché, Action,Controleur *@
+    @foreach (var a in Model.Avis)
+    {
+    <hr />
+    <div>
+        <p>@a.DateAvis</p>
+        <p>@a.Nom</p>
+        <p>@a.Description</p>
+        <p>Note : @a.Note</p>
+
+     </div>
+    }
+</div>
+
+ 

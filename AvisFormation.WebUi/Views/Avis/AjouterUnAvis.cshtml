@@ -1,0 +1,40 @@
+﻿@model AvisFormation.WebUi.Models.AjouterUnAvisViewModel
+@{
+    ViewBag.Title = "AjouterUnAvis";
+}
+
+<h2> Ajouter Un Avis sur @Model.FormationNom </h2>
+
+
+<div class="container"> 
+    @using (Html.BeginForm("AjouterUnAvis", "Avis", FormMethod.Post))
+    {
+<div class="mb-3">
+    <label for="Nom" class="form-label">Nom</label>
+    <input type="text" class="form-control" id="Nom" name="Nom" placeholder="Saisir votre nom">
+</div>
+<div class="mb-3">
+    <label for="Description" class="form-label">Commentaire</label>
+    <textarea class="form-control" id="Description" name="Description" rows="3"></textarea>
+</div>
+<div class="mb-3">
+    <label for="Note" class="form-label">Note</label>
+    <select class="form-select" name="Note" id="Note" aria-label="Default select example">
+        <option value="1">1</option>
+        <option value="1.5">1.5</option>
+        <option value="2">2</option>
+        <option value="2.5">2.5</option>
+        <option value="3">3</option>
+        <option value="3.5">3.5</option>
+        <option value="4">4</option>
+        <option value="4.5">4.5</option>
+        <option value="5">5</option>
+
+    </select>
+
+</div>
+    <input type="hidden" name="Nomseo" value="@Model.FormationNomSeo" />
+    <input type="submit" class=" btn btn-primary" value="Ajouter"/>
+    }
+    </div>
+

@@ -1,0 +1,28 @@
+﻿@model List<AvisFormation.WebUi.Models.ListePersonnaliséeFormationViewModel>
+@{
+    ViewBag.Title = "ToutesLesFormations";
+}
+
+<h4>La liste des formations</h4>
+@foreach (var formation in Model)
+{
+    <div><span>Nom : @formation.Nom</span></div>
+    <div><span>Description : @formation.Description</span></div>
+    <div><span>Url : @formation.Url</span></div>
+    <div><span>NomSeo : @formation.NomSeo</span></div>
+    if (formation.Note != 0)
+    {
+        <div><span>Note : @formation.Note</span></div>
+        <div><span>Nombre d'avis : @formation.NombreAvis</span></div>
+    }
+    else
+    {
+        <div><span>Note : pas de note</span></div>
+        <div><span>Nombre d'avis : Aucun Avis !</span></div>
+    }
+
+    @Html.ActionLink("Plus d'info", "DetailsFormation",new {nomSeo=formation.NomSeo}) //@Html helper c# Razor@ @*  @Html.ActionLink("Plus d'info à afficher de lien","Nom de l'action'","Nom controler") *@
+
+    <hr />
+
+}
